@@ -5,34 +5,33 @@
     <instantiate from="root/res/layout/activity_layout.xml.ftl"
                    to="${escapeXmlAttribute(resOut)}/layout/activity_${classToResource(className)}.xml" />
 
-    <instantiate from="root/src/app_package/Activity.java.ftl"
-                   to="${viperOut}/view/activity/${prefix}Activity.java" />
+    <instantiate from="root/src/app_package/${languageDir}/Activity.${languageExt}.ftl"
+                   to="${viperOut}/view/activity/${prefix}Activity.${languageExt}" />
 
-    <instantiate from="../common/root/src/app_package/Interactor.java.ftl"
-                   to="${viperOut}/interactor/${prefix}Interactor.java" />
+    <instantiate from="../common/root/src/app_package/${languageDir}/Interactor.${languageExt}.ftl"
+                   to="${viperOut}/interactor/${prefix}Interactor.${languageExt}" />
 
-   <instantiate from="../common/root/src/app_package/Presenter.java.ftl"
-                   to="${viperOut}/presenter/${prefix}Presenter.java" />
+    <instantiate from="../common/root/src/app_package/${languageDir}/Presenter.${languageExt}.ftl"
+                   to="${viperOut}/presenter/${prefix}Presenter.${languageExt}" />
 
-<#if viewState> 
-  <instantiate from="../common/root/src/app_package/ViewState.java.ftl" 
-                   to="${viperOut}/view/viewstate/${prefix}ViewState.java" /> 
-</#if>
+    <#if viewState>
+      <instantiate from="../common/root/src/app_package/${languageDir}/ViewState.${languageExt}.ftl"
+                       to="${viperOut}/view/viewstate/${prefix}ViewState.${languageExt}" />
+    </#if>
 
-<#if createViewHelper>    
-    <instantiate from="../common/root/src/app_package/ViewHelperContract.java.ftl"
-                   to="${viperOut}/contract/${prefix}Contract.java" />
+    <#if createViewHelper>
+        <instantiate from="../common/root/src/app_package/${languageDir}/ViewHelperContract.${languageExt}.ftl"
+                       to="${viperOut}/contract/${prefix}Contract.${languageExt}" />
 
-    <instantiate from="../common/root/src/app_package/ViewHelperRouting.java.ftl"
-                   to="${viperOut}/routing/${prefix}Routing.java" />
-<#else>
-    <instantiate from="../common/root/src/app_package/Contract.java.ftl"
-                   to="${viperOut}/contract/${prefix}Contract.java" />
+        <instantiate from="../common/root/src/app_package/${languageDir}/ViewHelperRouting.${languageExt}.ftl"
+                       to="${viperOut}/routing/${prefix}Routing.${languageExt}" />
+    <#else>
+        <instantiate from="../common/root/src/app_package/${languageDir}/Contract.${languageExt}.ftl"
+                       to="${viperOut}/contract/${prefix}Contract.${languageExt}" />
 
-    <instantiate from="../common/root/src/app_package/Routing.java.ftl"
-                   to="${viperOut}/routing/${prefix}Routing.java" />
-</#if>
+        <instantiate from="../common/root/src/app_package/${languageDir}/Routing.${languageExt}.ftl"
+                       to="${viperOut}/routing/${prefix}Routing.${languageExt}" />
+    </#if>
 
-    <open file="${viperOut}/contract/${prefix}Contract.java" /> 
-
+    <open file="${viperOut}/contract/${prefix}Contract.${languageExt}" />
 </recipe>
